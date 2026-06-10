@@ -40,3 +40,21 @@ Explanation:
 =================================================
 
 """
+
+def has_all_vowels(word):
+    vowels = "aeiou"
+    for v in vowels:
+        if v not in word:
+            return False
+    return True
+
+count = 0
+with open("sowpods.txt", "r") as f:
+    for line in f:
+        w = line.strip().lower()  
+        if has_all_vowels(w):     
+            print(w)             
+            count += 1
+
+print("Total words with all vowels:", count)
+
