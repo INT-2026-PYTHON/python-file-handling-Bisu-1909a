@@ -73,6 +73,4 @@ def sonnet_minus_sowpods(sonnet_file, sowpods_file):
     print(diff)
     print("Total:", len(diff))
 
-
-if __name__ == "__main__":
     sonnet_minus_sowpods("sonnet_words.txt", "sowpods.txt")

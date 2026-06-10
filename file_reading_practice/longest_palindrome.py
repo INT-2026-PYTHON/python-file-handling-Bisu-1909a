@@ -58,8 +58,6 @@ def longest_palindromes(filename):
 
     return max_len, longest
 
-
-if __name__ == "__main__":
     length, words = longest_palindromes("sowpods.txt")
     print("Longest palindrome length:", length)
     for w in words:
