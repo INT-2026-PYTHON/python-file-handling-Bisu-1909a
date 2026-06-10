@@ -48,13 +48,12 @@ def has_all_vowels(word):
             return False
     return True
 
-# Main program
 count = 0
 with open("sowpods.txt", "r") as f:
     for line in f:
-        w = line.strip().lower()   # clean word
+        w = line.strip().lower()  
         if has_all_vowels(w):     
-            print(w)               # print each word
+            print(w)             
             count += 1
 
 print("Total words with all vowels:", count)
