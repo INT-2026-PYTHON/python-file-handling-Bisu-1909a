@@ -58,3 +58,21 @@ After sorting -> ['a', 'compare', 'i', 'to'].
 =================================================
 
 """
+def sonnet_minus_sowpods(sonnet_file, sowpods_file):
+  
+    with open(sowpods_file, "r") as f:
+        sow_set = set(word.strip().lower() for word in f if word.strip())
+
+    with open(sonnet_file, "r") as f:
+        sonnet_set = set(word.strip().lower() for word in f if word.strip())
+
+    # difference: words in sonnet but not in sowpods
+    diff = sorted(sonnet_set - sow_set)
+
+    print("Words in sonnet but not in sowpods:")
+    print(diff)
+    print("Total:", len(diff))
+
+
+if __name__ == "__main__":
+    sonnet_minus_sowpods("sonnet_words.txt", "sowpods.txt")

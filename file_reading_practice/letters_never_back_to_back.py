@@ -53,26 +53,19 @@ Sorted -> ['b', 'd', 'e', 'h', 'k', 'm', 'n',
 =================================================
 
 """
-def alphabets_never_in_sequence():
-    seen = set()
-    doubled = set()
+# Read file
+with open("sowpods.txt", "r") as f:
+    words = [line.strip().lower() for line in f]
 
-    # filename must be in quotes
-    with open("file_reading_practice/sowpods.txt") as f:
+seen = set()
+doubled = set()
 
-        for word in f:
-            word = word.strip().lower()
-            seen.update(word)
-            # check for consecutive letters
-            for i in range(len(word) - 1):
-                if word[i] == word[i + 1]:
-                    doubled.add(word[i])
+for word in words:
+    for i, ch in enumerate(word):
+        seen.add(ch)
+        if i > 0 and word[i] == word[i-1]:
+            doubled.add(ch)
 
-    result = sorted(seen - doubled)
-    return result
-
-if __name__ == "__main__":
-    letters = alphabets_never_in_sequence()
-    print("Letters that never appear back-to-back:")
-    print(letters)
-
+result = sorted(seen - doubled)
+print("Letters that never appear back-to-back:")
+print(result)
